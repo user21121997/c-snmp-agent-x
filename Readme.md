@@ -340,8 +340,8 @@ It is approximatley 524M in both the cases.
 ## Node JS SNMP (Optional)
 As I found really simple library in JS so, I  also tried implementing custom OID SNMP sub agent with javascript using net-snmp npm module. Code can be found in the `nodejs` folder. Please Change directory to nodejs `cd nodejs` and run the` npm install` and `npm start ` to run the application. After that we can test the application with same commands given in the testing part. But Please consider below OID's for node given in the following table or run `snmpwalk` command to display all OID's:
 
-| #   | OID                 | MIB Mapping            | Request    | Description                                                       |
-| --- | ------------------- | --------------- | ---------- | ----------------------------------------------------------------- |
+| #   | OID                 | Request    | Description                                                       |
+| --- | ------------------- | ---------- | ----------------------------------------------------------------- |
 | 1   | 1.3.6.1.4.1.53864.1.1.1.0  | GET | returns the version number of the software running on the server |
 | 2   | 1.3.6.1.4.1.53864.1.1.2.0  | GET |returns  the most recent signalValue from SNMPSIGNALS table inside AFINITYTEST database|
 | 3   | .1.3.6.1.4.1.53864.1.1.3.0 | GET | returns  the size in bytes of the directory /var/log|
