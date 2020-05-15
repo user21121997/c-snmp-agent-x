@@ -1,7 +1,7 @@
 # Setting up a Custom SNMP Agent with Custom Enterprise OIDs
 
 This project  contains custom SNMP Agent Implemented in C/C++ and Javascript to monitor a Linux Server using Simple Networking Managment Protocol. Project is an initial step towards learning and understanding SNMP. 
-I have verified
+I have verified all the code on elementaryOS (Ubuntu distribution), However installation/commands may vary on other operating system. Please check before using it.
 ## Work  Breakdown
 Using Divide and Conquer approach,  I have divided the problem in the following sub tasks:
 1. Reading about basics of SNMP Protocol (Agent, Monitor, OID's, MIB's) (2-3 hours)
@@ -338,6 +338,7 @@ It is approximatley 128K in both the cases.
 ## Node JS SNMP (Optional)
 As I found really simple library in JS so, I  also tried implementing custom OID SNMP sub agent with javascript using net-snmp npm module. Code can be found in the node folder.  Please run the` npm install` and `npm start ` to run the application. After that we can test the application with same commands given in the testing part. But In my opinion, this approach is an inferior approach.
 
+Thank you. Feel Free to edit.
 ## References
 1. Essential SNMP 2nd Edition
 2. https://www.tutorialspoint.com/postgresql/
