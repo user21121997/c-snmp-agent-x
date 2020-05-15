@@ -1,6 +1,6 @@
 # Setting up a Custom SNMP Agent with Custom Enterprise OIDs
 
-This project  contains custom SNMP Agent Implemented in C/C++ to monitor a Linux Server using Simple Networking Managment Protocol. Project is an initial step towards learning and understanding SNMP. 
+This project  contains custom SNMP Agent Implemented in C/C++ and Javascript to monitor a Linux Server using Simple Networking Managment Protocol. Project is an initial step towards learning and understanding SNMP. 
 I have verified
 ## Work  Breakdown
 Using Divide and Conquer approach,  I have divided the problem in the following sub tasks:
