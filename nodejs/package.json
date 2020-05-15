@@ -1,0 +1,16 @@
+{
+  "name": "snmp-custom",
+  "version": "1.0.0",
+  "description": "Custom SNMP Agent",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "Rehan Punjwani",
+  "license": "MIT",
+  "dependencies": {
+    "net-snmp": "^2.6.4",
+    "pg-native": "^3.0.0"
+  }
+}
