@@ -230,7 +230,7 @@ char* getSignalsValue(){
 ```
 >**Task3:** The third OID should return the total disk space used (in bytes) for the /var/log/ folder.
 
-For disk calculation, there were no avaliable libraries in C (at least I coud'nt find out). We have used execlp, pipes and dup2 commands for computing linux shell commands in C during our operating system course, However, the function was not performing accordingly with SNMP handler. Thanks [Alex B's Answer](http://https://stackoverflow.com/questions/472697/how-do-i-get-the-size-of-a-directory-in-c "Alex B's Answer") , I found got to know about ftw library to recursively check for subdirectories and adding it to a static variable.  Following driver function for computing diskSpace in Bytes:
+For disk calculation, there were no avaliable libraries in C (at least I coud'nt find out). We have used execlp, pipes and dup2 commands for computing linux shell commands in C during our operating system course. However, the function was not performing accordingly with SNMP handler. Thanks [Alex B's Answer](http://https://stackoverflow.com/questions/472697/how-do-i-get-the-size-of-a-directory-in-c "Alex B's Answer") , I found on the internet and got to know about ftw library which recursively check for subdirectories and adding its size to a static variable.  Following driver function for computing diskSpace in Bytes:
 
 ```c
 int sum(const char *fpath, const struct stat *sb, int typeflag) {
@@ -335,10 +335,10 @@ $ sudo du -sh -B1 /var/log | cut -f1
 ```
 523952128
 ```
-It is approximatley 128K in both the cases.
+It is approximatley 524M in both the cases.
 
 ## Node JS SNMP (Optional)
-As I found really simple library in JS so, I  also tried implementing custom OID SNMP sub agent with javascript using net-snmp npm module. Code can be found in the `nodejs` folder. Please Change directory to nodejs `cd nodejs` and run the` npm install` and `npm start ` to run the application. After that we can test the application with same commands given in the testing part. But Please consider that node OID's for node are as per the following table or run `snmpwalk` command to display all OID's:
+As I found really simple library in JS so, I  also tried implementing custom OID SNMP sub agent with javascript using net-snmp npm module. Code can be found in the `nodejs` folder. Please Change directory to nodejs `cd nodejs` and run the` npm install` and `npm start ` to run the application. After that we can test the application with same commands given in the testing part. But Please consider below OID's for node given in the following table or run `snmpwalk` command to display all OID's:
 
 | #   | OID                 | MIB Mapping            | Request    | Description                                                       |
 | --- | ------------------- | --------------- | ---------- | ----------------------------------------------------------------- |
@@ -349,12 +349,13 @@ As I found really simple library in JS so, I  also tried implementing custom OID
 
 Thank you. Feel Free to edit.
 ## References
-1. Essential SNMP 2nd Edition
-2. https://www.tutorialspoint.com/postgresql/
-3. https://sourceforge.net/p/net-snm
-4. http://www.net-snmp.org/wiki/index.php/Tutorials
-5. http://zetcode.com/db/postgresqlc/
-6. https://www.npmjs.com/package/net-snmp#using-this-module-snmp-agent
-7. http://www.net-snmp.org/tutorial/tutorial-5/
+1. [Essential SNMP 2nd Edition](http://www.kingauthor.co/books/Douglas%20Mauro%20and%20Kevin%20Schmidt/Essential%20SNMP/Essential%20SNMP%20-%20Douglas%20Mauro%20and%20Kevin%20Schmidt.pdf)
+2. [Dynamic Loadable Object](http://www.net-snmp.org/wiki/index.php/TUT:Writing_a_Dynamically_Loadable_Object)
+3. [POSTGRESQL-TutorialsPoint](https://www.tutorialspoint.com/postgresql/)
+4. [Net-SNMP Sourceforge](https://sourceforge.net/p/net-snmp)
+5. [Net-SNMP Tutorials](http://www.net-snmp.org/wiki/index.php/Tutorials)
+6. [POSTGRESQL in C](http://zetcode.com/db/postgresqlc/)
+7. [net-snmp node module](https://www.npmjs.com/package/net-snmp#using-this-module-snmp-agent)
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
