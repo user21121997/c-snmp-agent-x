@@ -114,7 +114,8 @@ rwcommunity public
 dlmod scalarValues /usr/lib/libSnmpHandler.so
 ```
 I have also included snmp.conf file in this repository. Please see it to consider the changes.
-Also for nodejs project to work with Agentx, got to the last line of snmpd.conf file and un comment this line:
+
+Also to enable Agentx(implemented in node), go to the last line of snmpd.conf file and uncomment this line:
 ```base
 agentXSocket    tcp:localhost:705
 ```
@@ -228,7 +229,8 @@ char* getSignalsValue(){
     return query;
 }
 ```
->**Task3:** The third OID should return the total disk space used (in bytes) for the /var/log/ folder
+>**Task3:** The third OID should return the total disk space used (in bytes) for the /var/log/ folder.
+
 For disk calculation, there were no avaliable libraries in C (at least I coud'nt find out). We have used execlp, pipes and dup2 commands for computing linux shell commands in C during our operating system course, However, the function was not performing accordingly with SNMP handler. Thanks [Alex B's Answer](http://https://stackoverflow.com/questions/472697/how-do-i-get-the-size-of-a-directory-in-c "Alex B's Answer") , I found got to know about ftw library to recursively check for subdirectories and adding it to a static variable.  Following driver function for computing diskSpace in Bytes:
 
 ```c
@@ -296,8 +298,8 @@ AFINITITEST=> select * from snmpsignals
 AFINITITEST-> ;
  id | signalvalue |     signaltime      
 ----+-------------+---------------------
-  1 |           4     | 2020-05-10 15:36:38
-  2 |          10   | 2020-05-10 15:40:38
+  1 |           4 | 2020-05-10 15:36:38
+  2 |          10 | 2020-05-10 15:40:38
 (2 rows)
 	
 ```
@@ -336,7 +338,7 @@ $ sudo du -sh -B1 /var/log | cut -f1
 It is approximatley 128K in both the cases.
 
 ## Node JS SNMP (Optional)
-As I found really simple library in JS so, I  also tried implementing custom OID SNMP sub agent with javascript using net-snmp npm module. Code can be found in the node folder.  Please run the` npm install` and `npm start ` to run the application. After that we can test the application with same commands given in the testing part. But In my opinion, this approach is an inferior approach.
+As I found really simple library in JS so, I  also tried implementing custom OID SNMP sub agent with javascript using net-snmp npm module. Code can be found in the `nodejs` folder. Please Change directory to nodejs `cd nodejs` and run the` npm install` and `npm start ` to run the application. After that we can test the application with same commands given in the testing part. But In my opinion, this approach is an inferior approach.
 
 Thank you. Feel Free to edit.
 ## References
