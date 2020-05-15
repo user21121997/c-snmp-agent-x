@@ -3,7 +3,7 @@
 This project  contains custom SNMP Agent Implemented in C/C++ and Javascript to monitor a Linux Server using Simple Networking Managment Protocol. Project is an initial step towards learning and understanding SNMP. 
 I have verified all the code on elementaryOS (Ubuntu distribution), However installation/commands may vary on other operating system. Please check before using it.
 ## Work  Breakdown
-Using Divide and Conquer approach,  I have divided the problem in the following sub tasks:
+Using Divide and Conquer approach,  I dissected the problem in the following sub tasks:
 1. Reading about basics of SNMP Protocol (Agent, Monitor, OID's, MIB's) (2-3 hours)
 2. Setup of SNMP client and understanding of basic cli commands to better understand the concept. (2-3 hours)
 3. Learned about writing MIB files, POSTGRESQL (libpq-fe) C library , documentation on extending SNMP agent.  (4-5 hours)
