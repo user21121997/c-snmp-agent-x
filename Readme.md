@@ -129,8 +129,7 @@ net-snmp-config --default-mibdirs
 $HOME/.snmp/mibs:/usr/local/share/snmp/mibs
 ```
 
-5. I Will Place MY-COMPANY-MIB.txt Custom Mib At ```/home/<user>/.snmp/mibs```. If the directory is not present please create the .snmp and mibs folder. You can also place it in other path in previous output as well.
-
+5. I Will Place MY-COMPANY-MIB.txt Custom Mib At ```/home/<user>/.snmp/mibs``` and ```/usr/local/share/snmp/mibs``` both. If the first directory is not present please create the ".snmp" folder and inside it a "mibs" folder.
 6. We will add below lines in `snmp.conf` for autolading of MIB and to enable debugging :
 ```bash
 showmiberrors  yes
@@ -262,9 +261,10 @@ This SNMP agent is now exposed to  3 custom OIDs along with other built in OIDs.
 
 | #   | OID                 | MIB Mapping            | Request    | Description                                                       |
 | --- | ------------------- | --------------- | ---------- | ----------------------------------------------------------------- |
-| 1   | 1.3.6.1.4.1.53864.2.1.0 | hostVersionString | GET | returns the version number of the software running on the server |
+| 1   | 1.3.6.1.4.1.53864.1.1.0 | hostVersionString | GET | returns the version number of the software running on the server |
 | 2   | 1.3.6.1.4.1.53864.1.2.0 | hostValueSnmpSignal       | GET |returns  the most recent signalValue from SNMPSIGNALS table inside AFINITYTEST database                                          |
 | 3   | .1.3.6.1.4.1.53864.1.3.0|  hostSizeDisk | GET | returns  the size in bytes of the directory /var/log|
+
 
 ## Testing/Usage
 
@@ -338,7 +338,14 @@ $ sudo du -sh -B1 /var/log | cut -f1
 It is approximatley 128K in both the cases.
 
 ## Node JS SNMP (Optional)
-As I found really simple library in JS so, I  also tried implementing custom OID SNMP sub agent with javascript using net-snmp npm module. Code can be found in the `nodejs` folder. Please Change directory to nodejs `cd nodejs` and run the` npm install` and `npm start ` to run the application. After that we can test the application with same commands given in the testing part. But In my opinion, this approach is an inferior approach.
+As I found really simple library in JS so, I  also tried implementing custom OID SNMP sub agent with javascript using net-snmp npm module. Code can be found in the `nodejs` folder. Please Change directory to nodejs `cd nodejs` and run the` npm install` and `npm start ` to run the application. After that we can test the application with same commands given in the testing part. But Please consider that node OID's for node are as per the following table or run `snmpwalk` command to display all OID's:
+
+| #   | OID                 | MIB Mapping            | Request    | Description                                                       |
+| --- | ------------------- | --------------- | ---------- | ----------------------------------------------------------------- |
+| 1   | 1.3.6.1.4.1.53864.1.1.1.0  | GET | returns the version number of the software running on the server |
+| 2   | 1.3.6.1.4.1.53864.1.1.2.0  | GET |returns  the most recent signalValue from SNMPSIGNALS table inside AFINITYTEST database|
+| 3   | .1.3.6.1.4.1.53864.1.1.3.0 | GET | returns  the size in bytes of the directory /var/log|
+
 
 Thank you. Feel Free to edit.
 ## References
