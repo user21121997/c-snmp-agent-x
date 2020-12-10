@@ -24,7 +24,7 @@ Furthermore, I have also implemented AgentX protocol using node-net-snmp library
 
 ## Language Choice
 I have coded in C language due to following reasons:
-1. I had command in working with C/C++ (worked in OS, DS,Algos, GP GPU). 
+1. I had command on working with C/C++ (worked in OS, DS,Algos, GP GPU). 
 2. As it was one of the recommended language.
 3. C is highly portable and is used for scripting system applications which form a major part of Windows, UNIX and Linux operating system.
 4. Official Documentation of net-snmp had tutorials in PERL, C SHELL and mib2c library for constructing C skeleton code.
